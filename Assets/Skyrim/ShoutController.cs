@@ -4,12 +4,16 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class ShoutController : MonoBehaviour
 {
+    [SerializeField] private AudioSource audioSource;
     [SerializeField] private PlayerInputAsset playerInput;
-    bool shout1 = false;
-    bool shout2 = false;
-    bool shout3 = false;
-    string shout;
-    float time;
+    [SerializeField] private List<ShoutSO> shoutList = new();
+    //[SerializeField] private AudioClip[] wordsAudio;
+    [SerializeField] private List<AudioClip> wordsAudio = new();
+    private bool shoutPhase1 = false;
+    private bool shoutPhase2 = false;
+    private bool shoutPhase3 = false;
+    private string shout;
+    private float time;
     private void Awake()
     {
         playerInput = new PlayerInputAsset();
@@ -17,7 +21,13 @@ public class ShoutController : MonoBehaviour
     private void OnEnable()
     {
         playerInput.Enable();
+        for (int i = 0; i < 2; i++)
+        {
+            wordsAudio[i] = shoutList[0].wordAudioList[i];
+        }
+
     }
+
     private void Update()
     {
         Shout();
@@ -29,20 +39,26 @@ public class ShoutController : MonoBehaviour
         {
             time += Time.deltaTime;
 
-            if (time >= 1 && !shout1)
+            if (time >= 0f && !shoutPhase1)
             {
                 Debug.Log("FUS");
-                shout1 = true;
+                shoutPhase1 = true;
+                audioSource.clip = wordsAudio[0];
+                audioSource.Play();
             }
-            if (time >= 2 && !shout2)
+            if (time >= 0.5f && !shoutPhase2)
             {
                 Debug.Log("RO");
-                shout2 = true;
+                shoutPhase2 = true;
+                audioSource.clip = wordsAudio[1];
+                audioSource.Play();
             }
-            if (time >= 3 && !shout3)
+            if (time >= 0.5f + audioSource.clip.length && !shoutPhase3 && !audioSource.isPlaying)
             {
                 Debug.Log("DAH");
-                shout3 = true;
+                shoutPhase3 = true;
+                audioSource.clip = wordsAudio[2];
+                audioSource.Play();
             }
 
         }
