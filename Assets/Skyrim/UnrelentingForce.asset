@@ -12,8 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6a990cc40dd714c9961052822fac8f, type: 3}
   m_Name: UnrelentingForce
   m_EditorClassIdentifier: 
+  shoutName: Unrelenting Force
   word1: FUS
   word2: RO
   word3: DAH
+  shoutCooldown: 10
+  wordsTiming:
+  - 0
+  - 0.8046485
+  - 1.5220182
   fullShoutAudioClip: {fileID: 8300000, guid: 166da4ff202063a4681643360c6450d0, type: 3}
+  wordAudioList:
+  - {fileID: 8300000, guid: c010f9314ccd8b34299cbd119977b13f, type: 3}
+  - {fileID: 8300000, guid: 83e37b31b495ad6428b6b86ccf633c4a, type: 3}
+  - {fileID: 8300000, guid: 603b0c0c1e1c5cf48bd77affd403147d, type: 3}
   shoutState: 0

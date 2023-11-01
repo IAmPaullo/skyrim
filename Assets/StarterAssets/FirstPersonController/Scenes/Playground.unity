@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 723429196}
   - component: {fileID: 723429199}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -330,10 +330,9 @@ MonoBehaviour:
   audioSource: {fileID: 723429199}
   shoutList:
   - {fileID: 11400000, guid: ca55073c7bcff504b988ade09e702a38, type: 2}
-  wordsAudio:
-  - {fileID: 8300000, guid: c010f9314ccd8b34299cbd119977b13f, type: 3}
-  - {fileID: 8300000, guid: 83e37b31b495ad6428b6b86ccf633c4a, type: 3}
-  - {fileID: 8300000, guid: 603b0c0c1e1c5cf48bd77affd403147d, type: 3}
+  - {fileID: 11400000, guid: aca999acfc126b246a0f6376ad7e5748, type: 2}
+  wordsAudio: []
+  wordTiming: []
 --- !u!4 &723429198
 Transform:
   m_ObjectHideFlags: 0
